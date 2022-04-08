@@ -150,7 +150,10 @@ Monthpicker
 .mpicker-month button:hover {
     background: rgba(0, 0, 0, 0.05);
 }
-.mpicker-month .selectedMonth{
+.mpicker-month .selected-month{
   background: #f75c18;
   color: #fff;
+}
+.mpicker-month .current-month{
+  border: 2px solid #eee;
 }

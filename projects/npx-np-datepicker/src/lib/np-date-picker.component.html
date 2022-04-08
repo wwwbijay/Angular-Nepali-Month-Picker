@@ -80,10 +80,15 @@
           index as i
         "
         class="mpicker-month"
+
+        
       >
         <button
           (click)="selectMonthYear(i)"
-          [ngClass]=" (i == selectedDate?.month) ? 'selectedMonth' : ''"
+          [class.selected-month]="i == selectedDate?.month"
+          [class.current-month]="
+                i === nepaliDateToday.month &&
+                currentNepaliDate.year === nepaliDateToday.year"
         >
           {{ month }}
         </button>
