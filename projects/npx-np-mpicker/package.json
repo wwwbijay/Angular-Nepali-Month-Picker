@@ -1,6 +1,6 @@
 {
-  "name": "ngx-np-datepicker",
-  "version": "0.0.1",
+  "name": "ngx-np-mpicker",
+  "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^13.1.0",
     "@angular/core": "^13.1.0"

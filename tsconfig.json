@@ -16,9 +16,9 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "paths": {
-      "npx-np-datepicker": [
-        "dist/npx-np-datepicker/npx-np-datepicker",
-        "dist/npx-np-datepicker"
+      "npx-np-mpicker": [
+        "dist/npx-np-mpicker/npx-np-mpicker",
+        "dist/npx-np-mpicker"
       ]
     },
     "importHelpers": true,

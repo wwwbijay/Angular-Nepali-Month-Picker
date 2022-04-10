@@ -3,23 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-np-datepicker": {
+    "ngx-np-mpicker": {
       "projectType": "library",
-      "root": "projects/npx-np-datepicker",
-      "sourceRoot": "projects/npx-np-datepicker/src",
+      "root": "projects/npx-np-mpicker",
+      "sourceRoot": "projects/npx-np-mpicker/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/npx-np-datepicker/ng-package.json"
+            "project": "projects/npx-np-mpicker/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/npx-np-datepicker/tsconfig.lib.prod.json"
+              "tsConfig": "projects/npx-np-mpicker/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/npx-np-datepicker/tsconfig.lib.json"
+              "tsConfig": "projects/npx-np-mpicker/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,39 +27,39 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/npx-np-datepicker/src/test.ts",
-            "tsConfig": "projects/npx-np-datepicker/tsconfig.spec.json",
-            "karmaConfig": "projects/npx-np-datepicker/karma.conf.js"
+            "main": "projects/npx-np-mpicker/src/test.ts",
+            "tsConfig": "projects/npx-np-mpicker/tsconfig.spec.json",
+            "karmaConfig": "projects/npx-np-mpicker/karma.conf.js"
           }
         }
       }
     },
-    "npdatepickertest": {
+    "npmpickertest": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
           "strict": true
         }
       },
-      "root": "projects/npdatepickertest",
-      "sourceRoot": "projects/npdatepickertest/src",
+      "root": "projects/npmpickertest",
+      "sourceRoot": "projects/npmpickertest/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/npdatepickertest",
-            "index": "projects/npdatepickertest/src/index.html",
-            "main": "projects/npdatepickertest/src/main.ts",
-            "polyfills": "projects/npdatepickertest/src/polyfills.ts",
-            "tsConfig": "projects/npdatepickertest/tsconfig.app.json",
+            "outputPath": "dist/npmpickertest",
+            "index": "projects/npmpickertest/src/index.html",
+            "main": "projects/npmpickertest/src/main.ts",
+            "polyfills": "projects/npmpickertest/src/polyfills.ts",
+            "tsConfig": "projects/npmpickertest/tsconfig.app.json",
             "assets": [
-              "projects/npdatepickertest/src/favicon.ico",
-              "projects/npdatepickertest/src/assets"
+              "projects/npmpickertest/src/favicon.ico",
+              "projects/npmpickertest/src/assets"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "projects/npdatepickertest/src/styles.css"
+              "projects/npmpickertest/src/styles.css"
             ],
             "scripts": []
           },
@@ -79,8 +79,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "projects/npdatepickertest/src/environments/environment.ts",
-                  "with": "projects/npdatepickertest/src/environments/environment.prod.ts"
+                  "replace": "projects/npmpickertest/src/environments/environment.ts",
+                  "with": "projects/npmpickertest/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -100,10 +100,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "npdatepickertest:build:production"
+              "browserTarget": "npmpickertest:build:production"
             },
             "development": {
-              "browserTarget": "npdatepickertest:build:development"
+              "browserTarget": "npmpickertest:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -111,22 +111,22 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "npdatepickertest:build"
+            "browserTarget": "npmpickertest:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/npdatepickertest/src/test.ts",
-            "polyfills": "projects/npdatepickertest/src/polyfills.ts",
-            "tsConfig": "projects/npdatepickertest/tsconfig.spec.json",
-            "karmaConfig": "projects/npdatepickertest/karma.conf.js",
+            "main": "projects/npmpickertest/src/test.ts",
+            "polyfills": "projects/npmpickertest/src/polyfills.ts",
+            "tsConfig": "projects/npmpickertest/tsconfig.spec.json",
+            "karmaConfig": "projects/npmpickertest/karma.conf.js",
             "assets": [
-              "projects/npdatepickertest/src/favicon.ico",
-              "projects/npdatepickertest/src/assets"
+              "projects/npmpickertest/src/favicon.ico",
+              "projects/npmpickertest/src/assets"
             ],
             "styles": [
-              "projects/npdatepickertest/src/styles.css"
+              "projects/npmpickertest/src/styles.css"
             ],
             "scripts": []
           }
@@ -134,5 +134,5 @@
       }
     }
   },
-  "defaultProject": "ngx-np-datepicker"
+  "defaultProject": "ngx-np-mpicker"
 }

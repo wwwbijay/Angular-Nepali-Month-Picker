@@ -1,6 +1,6 @@
-<div class="nepali-date-picker" [ngClass]="theme">
+<div class="nepali-month-picker" [ngClass]="theme">
   <input
-    class="np_datepicker_input"
+    class="np_mpicker_input"
     type="text"
     [value]="formattedDate"
     (focus)="open()"
@@ -24,10 +24,13 @@
 <!--.nepali-date-picker-->
 
 <ng-template #dp>
-
   <!--#MonthPicker START-->
-  <div id="month-picker" class="mpicker__container month_selector" [class.hide] = "!monthSelector">
-    <div class="datepicker__options-container">
+  <div
+    id="month-picker"
+    class="mpicker__container month_selector"
+    [class.hide]="!monthSelector"
+  >
+    <div class="mpicker__options-container">
       <a class="prev-month" (click)="prevYear()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
           <path
@@ -40,7 +43,7 @@
           {{ currentNepaliDate?.year }}
         </a>
       </span>
-      
+
       <a class="next-month" (click)="nextYear()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
           <path
@@ -50,7 +53,7 @@
       </a>
     </div>
 
-    <div class="datepicker__months-container">
+    <div class="mpicker__months-container">
       <div
         *ngFor="
           let month of monthsMapping[language][monthDisplayType];
@@ -60,8 +63,10 @@
       >
         <button
           (click)="selectMonthYear(i)"
-          [class.selected-month]="i == selectedDate?.month &&
-          selectedDate.year === currentNepaliDate.year"
+          [class.selected-month]="
+            i == selectedDate?.month &&
+            selectedDate.year === currentNepaliDate.year
+          "
           [class.current-month]="
             i === nepaliDateToday.month &&
             currentNepaliDate.year === nepaliDateToday.year
@@ -70,15 +75,18 @@
           {{ month }}
         </button>
       </div>
- 
     </div>
     <!--.datepicker__months-container ends-->
   </div>
   <!--.datepicker__container ends-->
 
   <!--#YearPicker START-->
-  <div id="year-picker" class="mpicker__container year_selector" [class.hide] = "monthSelector">
-    <div class="datepicker__options-container">
+  <div
+    id="year-picker"
+    class="mpicker__container year_selector"
+    [class.hide]="monthSelector"
+  >
+    <div class="mpicker__options-container">
       <a class="prev-month" (click)="prevYearRange()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
           <path
@@ -91,7 +99,7 @@
           {{ this.ysStartYear }} - {{ this.ysEndYear }}
         </a>
       </span>
-      
+
       <a class="next-month" (click)="nextYearRange()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
           <path
@@ -101,22 +109,14 @@
       </a>
     </div>
 
-    <div class="datepicker__months-container">
-      <div
-        *ngFor="
-          let year of years;
-          index as i
-        "
-        class="mpicker-month"
-      >
+    <div class="mpicker__months-container">
+      <div *ngFor="let year of years; index as i" class="mpicker-month">
         <button
           (click)="selectYear(i)"
-          [class.selected-month]="(ysStartYear+i) == selectedDate?.year"
-          [class.current-month]="
-          (ysStartYear+i) === nepaliDateToday.year
-          "
+          [class.selected-month]="ysStartYear + i == selectedDate?.year"
+          [class.current-month]="ysStartYear + i === nepaliDateToday.year"
         >
-        {{ year | toNp: language:"number" }}
+          {{ year | toNp: language:"number" }}
         </button>
       </div>
     </div>

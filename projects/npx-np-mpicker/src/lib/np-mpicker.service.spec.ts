@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NpDatePickerService } from './np-datepicker.service';
+import { NpDatePickerService } from './np-mpicker.service';
 
 describe('NpxNpDatepickerService', () => {
   let service: NpDatePickerService;

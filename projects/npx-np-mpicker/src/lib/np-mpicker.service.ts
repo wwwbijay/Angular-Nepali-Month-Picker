@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class NpDatePickerService {
+export class NpMPickerService {
   englishMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   englishLeapMonths = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   nepaliMonths = [
