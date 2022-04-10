@@ -106,6 +106,9 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
   yearSelector: Boolean = false;
   monthSelector: Boolean = true;
 
+  ysStartYear: any;
+  ysEndYear: any;
+
   @HostListener('document:click', ['$event'])
   clickout(event: any) {
     if (!this.eRef.nativeElement.contains(event.target)) {
@@ -129,17 +132,20 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     this.setCurrentDate();
     //this.selectDate(this.currentNepaliDate.day);
     this.populateYears();
-    this.setCurrentMonthData();
+   // this.setCurrentMonthData();
    // console.log(this.currentMonthData);
   }
 
   populateYears() {
-    for (let i = 2001; i <= 2099; i++) {
+    this.ysStartYear = this.currentNepaliDate.year - 10;
+    this.ysEndYear = this.currentNepaliDate.year + 9;
+    
+    for (let i = this.ysStartYear; i <= this.ysEndYear; i++) {
       this.years.push(i);
     }
   }
   selectYear(e: any) {
-    this.currentNepaliDate.year = parseInt(e.target.value);
+    this.currentNepaliDate.year = this.ysStartYear + e;
 
     const newDate = {
       day: this.currentNepaliDate.day,
@@ -152,6 +158,9 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       newDate.month,
       newDate.year
     );
+    console.log(this.currentNepaliDate);
+    
+    this.gotoMonthSelector();
 
     this.setCurrentMonthData();
   }
@@ -424,7 +433,11 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
     //this.setCurrentDate();
   }
 
-  yearSelect(){
+  gotoYearSelector(){
+    this.yearSelector = true;
+    this.monthSelector = false;
+  }
+  gotoMonthSelector(){
     this.yearSelector = false;
     this.monthSelector = true;
   }

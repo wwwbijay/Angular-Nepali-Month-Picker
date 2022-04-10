@@ -24,7 +24,9 @@
 <!--.nepali-date-picker-->
 
 <ng-template #dp>
-  <div class="datepicker__container">
+
+  <!--#MonthPicker START-->
+  <div id="month-picker" class="mpicker__container month_selector" [class.hide] = "!monthSelector">
     <div class="datepicker__options-container">
       <a class="prev-month" (click)="prevYear()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -34,36 +36,11 @@
         </svg>
       </a>
       <span class="np-mpicker-header__value">
-        <a (click)="yearSelect()">
+        <a (click)="gotoYearSelector()">
           {{ currentNepaliDate?.year }}
         </a>
       </span>
-      <!-- <select (change)="selectMonth($event)">
-          <option
-            *ngFor="
-              let month of monthsMapping[language][monthDisplayType];
-              index as i
-            "
-            [value]="month"
-            [selected]="i === currentNepaliDate?.month"
-          >
-            {{ month }}
-          </option>
-        </select>
-      </span> 
-      <span class="datepicker__options-year-container">
-        
-        <select (change)="selectYear($event)">
-          <option
-            *ngFor="let year of years; index as i"
-            [value]="year"
-            [selected]="year == currentNepaliDate?.year"
-          >
-            {{ year | toNp: language:"number" }}
-          </option>
-        </select>
-      </span> -->
-
+      
       <a class="next-month" (click)="nextYear()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
           <path
@@ -80,17 +57,66 @@
           index as i
         "
         class="mpicker-month"
-
-        
       >
         <button
           (click)="selectMonthYear(i)"
-          [class.selected-month]="i == selectedDate?.month"
+          [class.selected-month]="i == selectedDate?.month &&
+          selectedDate.year === currentNepaliDate.year"
           [class.current-month]="
-                i === nepaliDateToday.month &&
-                currentNepaliDate.year === nepaliDateToday.year"
+            i === nepaliDateToday.month &&
+            currentNepaliDate.year === nepaliDateToday.year
+          "
         >
           {{ month }}
+        </button>
+      </div>
+ 
+    </div>
+    <!--.datepicker__months-container ends-->
+  </div>
+  <!--.datepicker__container ends-->
+
+  <!--#YearPicker START-->
+  <div id="year-picker" class="mpicker__container year_selector" [class.hide] = "monthSelector">
+    <div class="datepicker__options-container">
+      <a class="prev-month" (click)="prevYear()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+          <path
+            d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z"
+          />
+        </svg>
+      </a>
+      <span class="np-mpicker-header__value">
+        <a (click)="gotoMonthSelector()">
+          {{ this.ysStartYear }} - {{ this.ysEndYear }}
+        </a>
+      </span>
+      
+      <a class="next-month" (click)="nextYear()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+          <path
+            d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"
+          />
+        </svg>
+      </a>
+    </div>
+
+    <div class="datepicker__months-container">
+      <div
+        *ngFor="
+          let year of years;
+          index as i
+        "
+        class="mpicker-month"
+      >
+        <button
+          (click)="selectYear(i)"
+          [class.selected-month]="(ysStartYear+i) == selectedDate?.year"
+          [class.current-month]="
+          (ysStartYear+i) === nepaliDateToday.year
+          "
+        >
+        {{ year | toNp: language:"number" }}
         </button>
       </div>
     </div>
