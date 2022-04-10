@@ -130,16 +130,13 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit() {
     this.setCurrentDate();
-    //this.selectDate(this.currentNepaliDate.day);
+    this.ysStartYear = this.currentNepaliDate.year - 10;
+    this.ysEndYear = this.currentNepaliDate.year + 9;
     this.populateYears();
-   // this.setCurrentMonthData();
-   // console.log(this.currentMonthData);
   }
 
   populateYears() {
-    this.ysStartYear = this.currentNepaliDate.year - 10;
-    this.ysEndYear = this.currentNepaliDate.year + 9;
-    
+    this.years = [];
     for (let i = this.ysStartYear; i <= this.ysEndYear; i++) {
       this.years.push(i);
     }
@@ -416,6 +413,33 @@ export class NpDatePickerComponent implements OnInit, ControlValueAccessor {
       newDate.year
     );
     this.setCurrentMonthData();
+  }
+  prevYearRange(){
+    let start = this.ysStartYear - 20
+    this.ysEndYear =  this.ysEndYear - 20;
+
+    if (start <= 2001) {
+      this.ysStartYear = 2001;
+      this.ysEndYear =  2001 + 19;
+    } else {
+      this.ysStartYear = start;
+    }
+
+    this.populateYears();
+  }
+
+  nextYearRange(){
+    let start = this.ysStartYear + 20
+    let end =  this.ysEndYear + 20;
+
+    if (end >=  2099) {
+      this.ysEndYear = 2099;
+      this.ysStartYear =  2099 - 19;
+    } else {
+      this.ysStartYear = start;
+      this.ysEndYear = end;
+    }
+    this.populateYears();
   }
 
   toggleOpen() {
