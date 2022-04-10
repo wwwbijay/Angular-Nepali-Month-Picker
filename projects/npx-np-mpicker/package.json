@@ -1,11 +1,40 @@
 {
   "name": "ngx-np-mpicker",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "A simple Nepali Month Picker(Bikram Sambat) library in angular.",
+  "homepage": "https://wwwbijay.github.io/angular-nepali-datepicker/",
+  "keywords": ["Angular","Typescript", "Javascript","Nepali Month Picker"],
+  "license": [
+    {
+      "type": "MIT",
+      "url": "https://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
   "peerDependencies": {
     "@angular/common": "^13.1.0",
     "@angular/core": "^13.1.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "module": "fesm2015/ngx-np-mpicker.mjs",
+  "es2020": "fesm2020/ngx-np-mpicker.mjs",
+  "esm2020": "esm2020/ngx-np-mpicker.mjs",
+  "fesm2020": "fesm2020/ngx-np-mpicker.mjs",
+  "fesm2015": "fesm2015/ngx-np-mpicker.mjs",
+  "typings": "ngx-np-mpicker.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./ngx-np-mpicker.d.ts",
+      "esm2020": "./esm2020/ngx-np-mpicker.mjs",
+      "es2020": "./fesm2020/ngx-np-mpicker.mjs",
+      "es2015": "./fesm2015/ngx-np-mpicker.mjs",
+      "node": "./fesm2015/ngx-np-mpicker.mjs",
+      "default": "./fesm2020/ngx-np-mpicker.mjs"
+    }
+  },
+  "sideEffects": false
 }
