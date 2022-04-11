@@ -1,15 +1,10 @@
 {
   "name": "ngx-np-mpicker",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A simple Nepali Month Picker(Bikram Sambat) library in angular.",
-  "homepage": "https://wwwbijay.github.io/angular-nepali-datepicker/",
+  "homepage": "http://bijayjoshi.com.np/angular-nepali-month-picker/",
   "keywords": ["Angular","Typescript", "Javascript","Nepali Month Picker"],
-  "license": [
-    {
-      "type": "MIT",
-      "url": "https://www.opensource.org/licenses/mit-license.php"
-    }
-  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^13.1.0",
     "@angular/core": "^13.1.0"

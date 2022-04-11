@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../coverage/npx-np-datepicker'),
+      dir: require('path').join(__dirname, '../../coverage/ngx-np-mpicker'),
       subdir: '.',
       reporters: [
         { type: 'html' },

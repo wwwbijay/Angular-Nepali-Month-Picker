@@ -17,8 +17,8 @@
     "moduleResolution": "node",
     "paths": {
       "npx-np-mpicker": [
-        "dist/npx-np-mpicker/npx-np-mpicker",
-        "dist/npx-np-mpicker"
+        "dist/ngx-np-mpicker/ngx-np-mpicker",
+        "dist/ngx-np-mpicker"
       ]
     },
     "importHelpers": true,

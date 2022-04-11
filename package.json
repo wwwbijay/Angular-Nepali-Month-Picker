@@ -1,13 +1,13 @@
 {
   "name": "np-mpicker",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "npmpbuild": "ng build --prod ngx-np-mpicker"
+    "npmpbuild": "ng build ngx-np-mpicker"
   },
   "dependencies": {
     "@angular/animations": "~13.1.0",
